@@ -1,0 +1,222 @@
+/* ============================================
+   ГЛАВНАЯ СТРАНИЦА (index.html)
+   Студия маникюра "Милка"
+   ============================================ */
+
+/* --- Главный экран (Hero) --- */
+/* Баннер с заголовком на главной странице */
+.hero {
+    background: url("фон.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 10px 40px rgba(139, 115, 85, 0.3);
+}
+
+/* Заголовок главного экрана */
+.hero h1 {
+    font-size: 56px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Подзаголовок главного экрана */
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* --- Услуги --- */
+/* Секция с услугами салона */
+#services {
+    padding: 60px 0;
+}
+
+/* Сетка карточек услуг */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Отдельная карточка услуги */
+.service-item {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Изображение услуги */
+.service-item img {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Название услуги */
+.service-item h3 {
+    font-size: 25.6px;
+}
+
+/* Описание услуги */
+.service-item p {
+    font-size: 15.2px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Цена услуги */
+.price {
+    font-weight: bold;
+    font-size: 19.2px;
+    color: #8b7355;
+    margin-top: 10px;
+}
+
+/* --- Галерея --- */
+/* Секция галереи работ */
+
+#gallery {
+        padding: 60px 0;
+}        
+
+.gallery h2 {
+    margin-bottom: 40px; /* Отступ под заголовком */
+}
+/* Сетка изображений галереи */
+.gallery-grid {
+    display: grid; /* Grid раскладка */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивные колонки */
+    gap: 15px; /* Расстояние между элементами */
+}
+/* Отдельный элемент галереи */
+.gallery-item {
+    overflow: hidden; /* Скрываем выходящее содержимое */
+    border-radius: 10px; /* Закругление углов */
+    cursor: pointer; /* Курсор-указатель */
+}
+/* Изображение в галерее */
+.gallery-item img {
+    width: 100%; /* Полная ширина */
+    height: 250px; /* Фиксированная высота */
+    object-fit: cover; /* Заполнение без искажений */
+}
+
+/* --- Мастера --- */
+/* Секция с мастерами салона */
+#masters {
+    padding: 60px 0;
+}
+
+/* Сетка карточек мастеров */
+.masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Карточка мастера */
+.master-card {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Фото мастера */
+.master-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    border: 3px solid #c9a961;
+}
+
+/* Имя мастера */
+.master-card h3 {
+    margin-bottom: 5px;
+}
+
+/* Описание/должность мастера */
+.master-card p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- Адаптивность --- */
+/* Адаптация для планшетов и мобильных (до 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 15px;
+        margin: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .gallery-item img {
+        max-height: 350px;
+    }
+
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .gallery-btn.prev {
+        left: 10px;
+    }
+
+    .gallery-btn.next {
+        right: 10px;
+    }
+
+    .services-grid,
+    .masters-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+}
+
+/* Адаптация для маленьких экранов (до 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .gallery-item img {
+        max-height: 280px;
+    }
+
+    .gallery-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}

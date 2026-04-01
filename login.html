@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Студия маникюра "Милка"</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="salon_manicur.html#services">Услуги</a></li>
+                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
+                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="appointment.html" class="btn-primary">Записаться</a>
+                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-page">
+        <div class="container">
+            <div class="login-form-wrapper">
+                <h2>Вход для сотрудников</h2>
+                <form id="login-form">
+                    <label for="username">Логин:</label>
+                    <input type="text" id="username" name="username" required placeholder="Введите ваш логин">
+                    <div class="error-message" id="username-error"></div>
+
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+                    <div class="error-message" id="password-error"></div>
+
+                    <button type="submit" class="btn-primary">Войти</button>
+                </form>
+                <p class="login-footer">Нет аккаунта? <a href="registration.html">Зарегистрироваться</a></p>
+                <p class="login-back"><a href="index.html">← Вернуться на главную</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

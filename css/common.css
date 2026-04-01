@@ -1,0 +1,279 @@
+/* ============================================
+   ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ
+   Студия маникюра "Милка"
+   ============================================ */
+
+/* --- Базовые настройки --- */
+/* Основные стили страницы: шрифт, фон, минимальная высота */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background: url("фон2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+
+}
+
+
+
+/* Контейнер для центрирования контента */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Заголовки --- */
+/* Общие стили для всех заголовков */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стиль заголовка H2 */
+h2 {
+    font-size: 2.5em;
+    color: #8b7355;
+}
+
+/* Стиль заголовка H3 */
+h3 {
+    font-size: 1.5em;
+    color: #6b5344;
+}
+
+/* --- Ссылки --- */
+/* Базовые стили ссылок */
+a {
+    text-decoration: none;
+    color: #c9a961;
+}
+
+/* --- Кнопки --- */
+/* Основная кнопка: золотисто-бежевый фон */
+.btn-primary {
+    background-color: #c9a961;
+    color: #fff;
+    border: 2px solid #c9a961;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Второстепенная кнопка: прозрачный фон с рамкой */
+.btn-secondary {
+    background-color: transparent;
+    color: #c9a961;
+    border: 2px solid #c9a961;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Кнопка регистрации: коричневая рамка */
+.btn-register {
+    background-color: transparent;
+    color: #8b7355;
+    border: 2px solid #8b7355;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Кнопка для главного экрана */
+.btn-hero {
+    background-color: #b89650;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* --- Шапка --- */
+/* Фиксированная шапка сайта */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(139, 115, 85, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Контейнер шапки с flex-раскладкой */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Логотип студии */
+.logo img {
+    height: 134px;
+    width: 400px;
+    margin: -5px -137px -7px -124px;
+}
+
+/* Навигационное меню */
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* Пункты меню */
+header nav ul li {
+    margin-left: 25px;
+}
+
+/* Ссылки в меню */
+header nav ul li a {
+    font-weight: bold;
+    color: #6b5344;
+}
+
+/* Контейнер для кнопок в шапке */
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* --- Подвал --- */
+/* Подвал сайта с контактной информацией */
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 60px 0;
+    margin-top: 60px;
+}
+
+/* Заголовок в подвале */
+footer h2 {
+    margin-bottom: 40px;
+    color: #8b7355;
+}
+
+/* Блок с контактами */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Отдельный элемент контакта */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Стили текста контактов */
+.contact-item a,
+.contact-item p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+}
+
+/* Кнопки действий в подвале */
+.contact-actions {
+    text-align: center;
+}
+
+/* --- Ошибки валидации (общие) --- */
+/* Стиль полей с ошибкой */
+input.input-error,
+textarea.input-error,
+select.input-error {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+/* Стиль полей с успешной валидацией */
+input.input-valid,
+textarea.input-valid,
+select.input-valid {
+    border-color: #28a745 !important;
+}
+
+/* Текст сообщения об ошибке */
+.error-message {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+    display: none;
+}
+
+/* Показ сообщения об ошибке */
+.error-message.visible {
+    display: block;
+}
+
+/* --- Адаптивность (общая) --- */
+/* Адаптация для планшетов и мобильных (до 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo img {
+        height: 60px;
+        width: auto;
+        margin: 0;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    header nav ul li {
+        margin: 0;
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+/* Адаптация для маленьких экранов (до 480px) */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    .header-actions .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}

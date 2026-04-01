@@ -47,6 +47,33 @@ function get_data_form() {
     
 }
 
+async function fetchLogin(username, password) {
+    // Формируем URL с данными для входа
+    let url = `http://localhost/myserver/?action=${encodeURIComponent('login')}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+
+    try {
+        // Отправляем запрос на сервер
+        let response = await fetch(url, {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+        })
+        let data = await response.json()
+
+        // Если вход успешен - сохраняем данные и переходим на главную
+        if (data.status === 'success') {
+            alert(data.message)
+            localStorage.setItem('isLoggedIn', 'true')
+            localStorage.setItem('username', username)
+            window.location.href = 'index.html'
+        } else {
+            alert(data.message)
+        }
+    } catch (error) {
+        console.error('Ошибка:', error)
+        alert('Ошибка соединения с сервером')
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     get_data_form()
-})k
+})
