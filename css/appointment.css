@@ -1,0 +1,775 @@
+/* ============================================
+   СТРАНИЦА ЗАПИСИ НА УСЛУГУ (appointment.html)
+   Студия маникюра "Милка"
+
+   Описание: Стили для формы записи на услугу
+   (выбор услуги, мастера, даты и времени)
+   ============================================ */
+
+/* ---Цветовые переменные --- */
+:root {
+    /* Основной бордовый цвет */
+    --bordeaux-primary: #800020;
+    /* Тёмный бордовый цвет */
+    --bordeaux-dark: #5a0016;
+    /* Светлый бордовый цвет */
+    --bordeaux-light: #a00028;
+    /* Акцентный золотистый цвет */
+    --bordeaux-accent: #c9a961;
+}
+
+/* --- Контейнер страницы --- */
+.appointment-page {
+    /* Минимальная высота страницы */
+    min-height: calc(100vh - 100px);
+    /* Внутренний отступ сверху и снизу */
+    padding: 60px 0;
+}
+
+/* --- Обёртка формы --- */
+.appointment-form-wrapper {
+    /* Цвет фона обёртки */
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Внутренний отступ */
+    padding: 40px;
+    /* Скругление углов */
+    border-radius: 8px;
+    /* Тень элемента */
+    box-shadow: 0 4px 20px rgba(128, 0, 32, 0.15);
+    /* Максимальная ширина */
+    max-width: 600px;
+    /* Ширина 100% */
+    width: 100%;
+    /* Центрирование элемента */
+    margin: 0 auto;
+}
+
+/* --- Заголовок --- */
+.appointment-form-wrapper h2 {
+    /* Выравнивание текста по центру */
+    text-align: center;
+    /* Отступ снизу */
+    margin-bottom: 10px;
+    /* Цвет заголовка */
+    color: var(--bordeaux-primary);
+}
+
+.appointment-form-wrapper .form-subtitle {
+    /* Выравнивание текста по центру */
+    text-align: center;
+    /* Цвет текста */
+    color: #666;
+    /* Отступ снизу */
+    margin-bottom: 30px;
+    /* Размер шрифта */
+    font-size: 0.95em;
+}
+
+/* --- Метки полей --- */
+.appointment-form-wrapper label {
+    /* Отображение как блочный элемент */
+    display: block;
+    /* Отступ снизу */
+    margin-bottom: 8px;
+    /* Жирный шрифт */
+    font-weight: bold;
+    /* Цвет текста */
+    color: var(--bordeaux-dark);
+}
+
+/* --- Поля ввода --- */
+.appointment-form-wrapper input[type="text"],
+.appointment-form-wrapper input[type="email"],
+.appointment-form-wrapper input[type="tel"],
+.appointment-form-wrapper input[type="date"],
+.appointment-form-wrapper input[type="number"],
+.appointment-form-wrapper select,
+.appointment-form-wrapper textarea {
+    /* Ширина 100% */
+    width: 100%;
+    /* Внутренний отступ */
+    padding: 12px;
+    /* Отступ снизу */
+    margin-bottom: 20px;
+    /* Цвет границы */
+    border: 1px solid #ccc;
+    /* Скругление углов */
+    border-radius: 4px;
+    /* Включает padding в ширину */
+    box-sizing: border-box;
+    /* Шрифт элемента */
+    font-family: 'Montserrat', sans-serif;
+    /* Размер шрифта */
+    font-size: 1em;
+}
+
+.appointment-form-wrapper input:focus,
+.appointment-form-wrapper select:focus,
+.appointment-form-wrapper textarea:focus {
+    /* Убираем стандартную обводку */
+    outline: none;
+    /* Цвет границы при фокусе */
+    border-color: var(--bordeaux-primary);
+    /* Тень при фокусе */
+    box-shadow: 0 0 5px rgba(128, 0, 32, 0.3);
+}
+
+.appointment-form-wrapper textarea {
+    /* Разрешить изменение только по вертикали */
+    resize: vertical;
+    /* Минимальная высота */
+    min-height: 80px;
+}
+
+/* --- Кнопка отправки --- */
+.appointment-form-wrapper .btn-submit {
+    /* Ширина 100% */
+    width: 100%;
+    /* Цвет фона кнопки */
+    background-color: var(--bordeaux-primary);
+    /* Цвет текста */
+    color: #fff;
+    /* Цвет границы */
+    border: 2px solid var(--bordeaux-primary);
+    /* Внутренний отступ */
+    padding: 15px 25px;
+    /* Скругление углов */
+    border-radius: 5px;
+    /* Курсор-указатель */
+    cursor: pointer;
+    /* Жирный шрифт */
+    font-weight: bold;
+    /* Размер шрифта */
+    font-size: 1.1em;
+    /* Отступы */
+    margin: 10px 0 20px 0;
+    /* Плавный переход */
+    transition: all 0.3s ease;
+}
+
+.appointment-form-wrapper .btn-submit:hover {
+    /* Фон при наведении */
+    background-color: var(--bordeaux-dark);
+    /* Цвет границы при наведении */
+    border-color: var(--bordeaux-dark);
+}
+
+/* --- Строки формы --- */
+.form-row {
+    /* Flex-контейнер */
+    display: flex;
+    /* Расстояние между элементами */
+    gap: 15px;
+}
+
+.form-row .form-group {
+    /* Элемент занимает всё доступное пространство */
+    flex: 1;
+}
+
+/* --- Информация об услуге --- */
+.service-info {
+    /* Цвет фона */
+    background-color: #f9f5f0;
+    /* Внутренний отступ */
+    padding: 15px;
+    /* Скругление углов */
+    border-radius: 5px;
+    /* Отступ снизу */
+    margin-bottom: 20px;
+    /* Граница слева */
+    border-left: 4px solid var(--bordeaux-primary);
+}
+
+.service-info p {
+    /* Отступ сверху и снизу */
+    margin: 5px 0;
+    /* Цвет текста */
+    color: var(--bordeaux-dark);
+}
+
+.service-info .price-display {
+    /* Жирный шрифт */
+    font-weight: bold;
+    /* Размер шрифта */
+    font-size: 1.2em;
+    /* Цвет текста */
+    color: var(--bordeaux-primary);
+}
+
+/* --- Временные слоты --- */
+.time-slots {
+    /* Сетка CSS Grid */
+    display: grid;
+    /* Три колонки */
+    grid-template-columns: repeat(3, 1fr);
+    /* Расстояние между ячейками */
+    gap: 10px;
+    /* Отступ снизу */
+    margin-bottom: 20px;
+}
+
+.time-slot {
+    /* Внутренний отступ */
+    padding: 10px;
+    /* Цвет границы */
+    border: 1px solid #ccc;
+    /* Скругление углов */
+    border-radius: 4px;
+    /* Выравнивание текста по центру */
+    text-align: center;
+    /* Курсор-указатель */
+    cursor: pointer;
+    /* Плавный переход */
+    transition: all 0.3s ease;
+    /* Цвет фона */
+    background-color: #fff;
+}
+
+.time-slot:hover {
+    /* Цвет границы при наведении */
+    border-color: var(--bordeaux-primary);
+    /* Цвет фона при наведении */
+    background-color: #fff0f5;
+}
+
+.time-slot.selected {
+    /* Цвет фона выбранного слота */
+    background-color: var(--bordeaux-primary);
+    /* Цвет текста */
+    color: #fff;
+    /* Цвет границы */
+    border-color: var(--bordeaux-primary);
+}
+
+.time-slot.disabled {
+    /* Цвет фона отключённого слота */
+    background-color: #f0f0f0;
+    /* Цвет текста */
+    color: #999;
+    /* Курсор запрета */
+    cursor: not-allowed;
+    /* Цвет границы */
+    border-color: #ddd;
+}
+
+/* --- Модальные окна (сообщения об успехе и ошибке) --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background-color: #fff;
+    padding: 40px 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+    line-height: 1.6;
+    font-size: 1em;
+    color: #333;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    color: var(--bordeaux-primary);
+}
+
+.modal-icon {
+    font-size: 3em;
+    margin-bottom: 12px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-icon {
+    background-color: #d4edda;
+    color: #28a745;
+}
+
+.error-icon {
+    background-color: #f8d7da;
+    color: #dc3545;
+}
+
+.modal-box strong {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.success-modal {
+    border-top: 5px solid #28a745;
+}
+
+.success-modal strong {
+    color: #28a745;
+}
+
+.error-modal {
+    border-top: 5px solid #dc3545;
+}
+
+.error-modal strong {
+    color: #dc3545;
+}
+
+.error-detail {
+    color: #721c24;
+    font-size: 0.9em;
+}
+
+/* Адаптивность для модальных окон */
+@media (max-width: 768px) {
+    .modal-box {
+        padding: 35px 25px 25px;
+        max-width: 90%;
+    }
+
+    .modal-icon {
+        font-size: 2.5em;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .modal-box strong {
+        font-size: 1.1em;
+    }
+
+    .modal-close-btn {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-box {
+        padding: 30px 20px 20px;
+        font-size: 0.9em;
+    }
+
+    .modal-icon {
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .modal-box strong {
+        font-size: 1em;
+    }
+
+    .modal-close-btn {
+        font-size: 1.3em;
+        top: 8px;
+        right: 12px;
+    }
+}
+
+/* --- Адаптивность --- */
+
+/* Планшеты (до 768px) */
+@media (max-width: 768px) {
+    .appointment-page {
+        padding: 40px 0;
+    }
+
+    .appointment-form-wrapper {
+        padding: 35px;
+        max-width: 550px;
+    }
+
+    .appointment-form-wrapper h2 {
+        font-size: 2em;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Мобильные телефоны (до 600px) */
+@media (max-width: 600px) {
+    .appointment-page {
+        padding: 30px 0;
+    }
+
+    .appointment-form-wrapper {
+        padding: 25px;
+    }
+
+    .appointment-form-wrapper h2 {
+        font-size: 1.8em;
+    }
+
+    .appointment-form-wrapper .form-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+
+    .appointment-form-wrapper label {
+        font-size: 0.95em;
+    }
+
+    .appointment-form-wrapper input[type="text"],
+    .appointment-form-wrapper input[type="email"],
+    .appointment-form-wrapper input[type="tel"],
+    .appointment-form-wrapper input[type="date"],
+    .appointment-form-wrapper input[type="number"],
+    .appointment-form-wrapper select,
+    .appointment-form-wrapper textarea {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    .appointment-form-wrapper .btn-submit {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .time-slot {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    fieldset.payment-methods {
+        padding: 12px;
+    }
+
+    fieldset.payment-methods legend {
+        font-size: 0.95em;
+    }
+
+    .radio-label {
+        font-size: 0.9em;
+    }
+
+    .checkbox-label {
+        font-size: 0.9em;
+    }
+
+    .user-info {
+        padding: 12px;
+    }
+
+    .user-info-label,
+    .user-info-value {
+        font-size: 0.9em;
+    }
+
+    .back-link {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .back-link a {
+        font-size: 1em;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .appointment-page {
+        padding: 20px 0;
+    }
+
+    .appointment-form-wrapper {
+        padding: 20px;
+    }
+
+    .appointment-form-wrapper h2 {
+        font-size: 1.6em;
+    }
+
+    .appointment-form-wrapper .form-subtitle {
+        font-size: 0.85em;
+    }
+
+    .appointment-form-wrapper label {
+        font-size: 0.9em;
+    }
+
+    .appointment-form-wrapper input[type="text"],
+    .appointment-form-wrapper input[type="email"],
+    .appointment-form-wrapper input[type="tel"],
+    .appointment-form-wrapper input[type="date"],
+    .appointment-form-wrapper input[type="number"],
+    .appointment-form-wrapper select,
+    .appointment-form-wrapper textarea {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .appointment-form-wrapper .btn-submit {
+        padding: 10px 18px;
+        font-size: 0.95em;
+    }
+
+    .time-slots {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .time-slot {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    fieldset.payment-methods {
+        padding: 10px;
+    }
+
+    fieldset.payment-methods legend {
+        font-size: 0.9em;
+    }
+
+    .radio-group {
+        gap: 8px;
+    }
+
+    .radio-label {
+        font-size: 0.85em;
+    }
+
+    .checkbox-label {
+        font-size: 0.85em;
+        gap: 8px;
+    }
+
+    .checkbox-label span {
+        line-height: 1.4;
+    }
+
+    .user-info {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .user-info-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .user-info-label,
+    .user-info-value {
+        font-size: 0.85em;
+    }
+
+    .back-link a {
+        font-size: 0.95em;
+    }
+}
+
+/* --- Информация о пользователе (из регистрации) --- */
+.user-info {
+    /* Цвет фона */
+    background-color: #f0f5ff;
+    /* Цвет границы */
+    border: 1px solid #b8d4f0;
+    /* Граница слева */
+    border-left: 4px solid var(--bordeaux-primary);
+    /* Внутренний отступ */
+    padding: 15px;
+    /* Скругление углов */
+    border-radius: 4px;
+    /* Отступ снизу */
+    margin-bottom: 25px;
+}
+
+.user-info-row {
+    /* Отступ между строками */
+    margin: 5px 0;
+    /* Flex-контейнер */
+    display: flex;
+    /* Расстояние между элементами */
+    gap: 8px;
+}
+
+.user-info-label {
+    /* Цвет текста */
+    color: var(--bordeaux-primary);
+    /* Размер шрифта */
+    font-size: 0.95em;
+    /* Жирный шрифт */
+    font-weight: bold;
+    /* Фиксированная ширина для выравнивания */
+    min-width: 80px;
+}
+
+.user-info-value {
+    /* Цвет текста */
+    color: var(--bordeaux-dark);
+    /* Размер шрифта */
+    font-size: 0.95em;
+}
+
+/* --- Radio и Checkbox --- */
+fieldset.payment-methods {
+    /* Цвет границы */
+    border: 1px solid #ccc;
+    /* Скругление углов */
+    border-radius: 4px;
+    /* Внутренний отступ */
+    padding: 15px;
+    /* Отступ снизу */
+    margin-bottom: 20px;
+}
+
+fieldset.payment-methods legend {
+    /* Жирный шрифт */
+    font-weight: bold;
+    /* Цвет текста */
+    color: var(--bordeaux-dark);
+    /* Отступы */
+    padding: 0 5px;
+    /* Отступ снизу */
+    margin-bottom: 10px;
+}
+
+.radio-group {
+    /* Flex-контейнер */
+    display: flex;
+    /* Перенос элементов */
+    flex-wrap: wrap;
+    /* Расстояние между элементами */
+    gap: 15px;
+}
+
+.radio-label {
+    /* Flex-контейнер */
+    display: flex;
+    /* Выравнивание по центру */
+    align-items: center;
+    /* Расстояние между элементами */
+    gap: 8px;
+    /* Курсор-указатель */
+    cursor: pointer;
+    /* Размер шрифта */
+    font-size: 0.95em;
+    /* Цвет текста */
+    color: var(--bordeaux-dark);
+}
+
+.radio-label input[type="radio"] {
+    /* Цвет радио-кнопки */
+    accent-color: var(--bordeaux-primary);
+    /* Ширина */
+    width: 18px;
+    /* Высота */
+    height: 18px;
+    /* Курсор-указатель */
+    cursor: pointer;
+    /* Убираем отступы */
+    margin: 0;
+}
+
+.checkbox-group {
+    /* Отступ снизу */
+    margin-bottom: 15px;
+}
+
+.checkbox-label {
+    /* Flex-контейнер */
+    display: flex;
+    /* Выравнивание по началу */
+    align-items: flex-start;
+    /* Расстояние между элементами */
+    gap: 10px;
+    /* Курсор-указатель */
+    cursor: pointer;
+    /* Размер шрифта */
+    font-size: 0.95em;
+    /* Цвет текста */
+    color: var(--bordeaux-dark);
+    /* Межстрочный интервал */
+    line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+    /* Цвет чекбокса */
+    accent-color: var(--bordeaux-primary);
+    /* Ширина */
+    width: 18px;
+    /* Высота */
+    height: 18px;
+    /* Курсор-указатель */
+    cursor: pointer;
+    /* Убираем отступы */
+    margin: 0;
+    /* Отступ сверху */
+    margin-top: 2px;
+}
+
+/* --- Стили ошибок для radio/checkbox --- */
+.radio-label .field-error,
+.checkbox-label .field-error {
+    /* Цвет текста ошибки */
+    color: #dc3545;
+    /* Размер шрифта */
+    font-size: 0.85em;
+    /* Отступ сверху */
+    margin-top: 4px;
+}
+
+/* Адаптивность для радио-группы */
+@media (max-width: 600px) {
+    /* Радио-группа в колонку */
+    .radio-group {
+        flex-direction: column;
+        /* Расстояние между элементами */
+        gap: 10px;
+    }
+}

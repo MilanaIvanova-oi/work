@@ -1,306 +1,446 @@
 /* ============================================
    СТРАНИЦА "О НАС"
    Студия маникюра "Милка"
-   
-   Описание: Стили для страницы о студии 
+
+   Описание: Стили для страницы о студии
    (история, ценности, статистика, команда)
    ============================================ */
 
-/* --- Цветовые переменные --- */
+/* ---Цветовые переменные --- */
 :root {
+    /* Основной бордовый цвет */
     --bordeaux-primary: #800020;
+    /* Тёмный бордовый цвет */
     --bordeaux-dark: #5a0016;
+    /* Светлый бордовый цвет */
     --bordeaux-light: #a00028;
+    /* Акцентный золотистый цвет */
     --bordeaux-accent: #c9a961;
 }
 
 /* --- Hero секция --- */
 .about-hero {
+    /* Внутренний отступ 80px сверху и снизу */
     padding: 80px 0;
+    /* Выравнивание текста по центру */
     text-align: center;
+    /* Тень элемента */
     box-shadow: 0 4px 20px rgba(128, 0, 32, 0.1);
 }
 
 .about-hero h1 {
-    font-size: 56px;
+    /* Размер шрифта заголовка */
+    font-size: 3.5em;
+    /* Цвет заголовка */
     color: var(--bordeaux-primary);
+    /* Отступ снизу */
     margin-bottom: 15px;
 }
 
 .hero-subtitle {
-    font-size: 22.4px;
+    /* Размер шрифта подзаголовка */
+    font-size: 1.4em;
+    /* Цвет подзаголовка */
     color: var(--bordeaux-dark);
+    /* Толщина шрифта */
     font-weight: 300;
+    /* Убираем внешние отступы */
     margin: 0;
 }
 
 /* --- Основные секции --- */
 .about-section {
+    /* Внутренний отступ секции */
     padding: 80px 0;
+    /* Цвет фона секции */
     background-color: rgba(255, 255, 255, 0.9);
 }
 
 .about-content {
+    /* Flex-контейнер с выравниванием по началу */
     display: flex;
+    /* Выравнивание элементов по вертикали */
     align-items: flex-start;
+    /* Расстояние между элементами */
     gap: 40px;
 }
 
 .about-text {
+    /* Элемент занимает всё доступное пространство */
     flex: 1;
 }
 
 .about-text h2 {
-    font-size: 40px;
+    /* Размер шрифта заголовка второго уровня */
+    font-size: 2.5em;
+    /* Цвет заголовка */
     color: var(--bordeaux-primary);
+    /* Отступ снизу */
     margin-bottom: 25px;
 }
 
 .about-text p {
-    font-size: 17.6px;
+    /* Размер шрифта абзаца */
+    font-size: 1.1em;
+    /* Межстрочный интервал */
     line-height: 1.8;
+    /* Цвет текста */
     color: #333;
+    /* Отступ снизу */
     margin-bottom: 20px;
 }
 
 .about-image {
+    /* Фиксированная ширина элемента изображения */
     flex: 0 0 300px;
 }
 
 .about-image video,
 .about-image img {
+    /* Ширина элемента 100% */
     width: 100%;
+    /* Автоматическая высота */
     height: auto;
+    /* Скругление углов */
     border-radius: 10px;
+    /* Тень элемента */
     box-shadow: 0 5px 20px rgba(128, 0, 32, 0.2);
+    /* Масштабирование с сохранением пропорций */
     object-fit: cover;
 }
 
 /* --- Секция ценностей --- */
 .values-section {
+    /* Внутренний отступ секции */
     padding: 80px 0;
 }
 
 .values-section h2 {
+    /* Выравнивание заголовка по центру */
     text-align: center;
+    /* Отступ снизу */
     margin-bottom: 50px;
 }
 
 .values-grid {
+    /* Сетка CSS Grid */
     display: grid;
+    /* Автоматическое количество колонок */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Расстояние между ячейками */
     gap: 30px;
 }
 
 .value-card {
+    /* Фон карточки */
     background: rgba(255, 255, 255, 0.9);
+    /* Внутренний отступ карточки */
     padding: 40px 30px;
+    /* Скругление углов */
     border-radius: 15px;
+    /* Выравнивание текста по центру */
     text-align: center;
+    /* Тень элемента */
     box-shadow: 0 5px 25px rgba(128, 0, 32, 0.15);
+    /* Плавный переход при наведении */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Прозрачная граница по умолчанию */
     border: 2px solid transparent;
 }
 
 .value-card:hover {
+    /* Сдвиг вверх при наведении */
     transform: translateY(-10px);
+    /* Увеличение тени при наведении */
     box-shadow: 0 15px 40px rgba(128, 0, 32, 0.25);
+    /* Цвет границы при наведении */
     border-color: var(--bordeaux-primary);
 }
 
 .value-icon {
-    font-size: 56px;
+    /* Размер иконки */
+    font-size: 3.5em;
+    /* Цвет иконки */
     color: var(--bordeaux-primary);
+    /* Отступ снизу */
     margin-bottom: 20px;
+    /* Отображение как блочный элемент */
     display: block;
 }
 
 .value-card h3 {
-    font-size: 24px;
+    /* Размер шрифта заголовка третьего уровня */
+    font-size: 1.5em;
+    /* Цвет заголовка */
     color: var(--bordeaux-dark);
+    /* Отступ снизу */
     margin-bottom: 15px;
 }
 
 .value-card p {
-    font-size: 16px;
+    /* Размер шрифта абзаца */
+    font-size: 1em;
+    /* Цвет текста */
     color: #555;
+    /* Межстрочный интервал */
     line-height: 1.6;
+    /* Убираем внешние отступы */
     margin: 0;
 }
 
 /* --- Секция статистики --- */
 .stats-section {
+    /* Внутренний отступ секции */
     padding: 80px 0;
+    /* Градиентный фон */
     background: linear-gradient(135deg, var(--bordeaux-primary) 0%, var(--bordeaux-dark) 100%);
 }
 
 .stats-grid {
+    /* Сетка CSS Grid */
     display: grid;
+    /* Автоматическое количество колонок */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Расстояние между ячейками */
     gap: 40px;
+    /* Выравнивание текста по центру */
     text-align: center;
 }
 
 .stat-item {
+    /* Flex-контейнер с вертикальным направлением */
     display: flex;
+    /* Направление - колонка */
     flex-direction: column;
+    /* Выравнивание по центру */
     align-items: center;
 }
 
 .stat-number {
-    font-size: 56px;
+    /* Размер шрифта числа */
+    font-size: 3.5em;
+    /* Жирный шрифт */
     font-weight: 700;
+    /* Цвет текста */
     color: #fff;
+    /* Шрифт с засечками */
     font-family: 'Playfair Display', serif;
+    /* Отображение как блочный элемент */
     display: block;
+    /* Отступ снизу */
     margin-bottom: 10px;
 }
 
 .stat-label {
-    font-size: 17.6px;
+    /* Размер шрифта подписи */
+    font-size: 1.1em;
+    /* Цвет текста */
     color: rgba(255, 255, 255, 0.9);
+    /* Толщина шрифта */
     font-weight: 400;
 }
 
 /* --- Секция команды --- */
 .team-section {
+    /* Внутренний отступ секции */
     padding: 80px 0;
+    /* Цвет фона */
     background-color: rgba(255, 255, 255, 0.9);
+    /* Выравнивание текста по центру */
     text-align: center;
 }
 
 .team-section h2 {
+    /* Отступ снизу */
     margin-bottom: 20px;
 }
 
 .team-intro {
-    font-size: 19.2px;
+    /* Размер шрифта введения */
+    font-size: 1.2em;
+    /* Цвет текста */
     color: #555;
+    /* Максимальная ширина */
     max-width: 800px;
+    /* Центрирование элемента */
     margin: 0 auto 40px;
+    /* Межстрочный интервал */
     line-height: 1.8;
 }
 
 .team-cta {
+    /* Отступ сверху */
     margin-top: 30px;
 }
 
 /* --- CTA секция --- */
 .cta-section {
+    /* Внутренний отступ секции */
     padding: 80px 0;
+    /* Фоновое изображение */
     background: url("фон.jpg");
+    /* Масштабирование фона */
     background-size: cover;
+    /* Без повторения фона */
     background-repeat: no-repeat;
+    /* Позиционирование фона */
     background-position: center;
+    /* Выравнивание текста по центру */
     text-align: center;
+    /* Цвет текста */
     color: #fff;
 }
 
 .cta-section h2 {
+    /* Цвет заголовка */
     color: #fff;
+    /* Отступ снизу */
     margin-bottom: 20px;
 }
 
 .cta-section p {
-    font-size: 19.2px;
+    /* Размер шрифта абзаца */
+    font-size: 1.2em;
+    /* Отступ снизу */
     margin-bottom: 40px;
+    /* Цвет текста */
     color: rgba(255, 255, 255, 0.9);
 }
 
 .cta-buttons {
+    /* Flex-контейнер для кнопок */
     display: flex;
+    /* Выравнивание по центру */
     justify-content: center;
+    /* Расстояние между кнопками */
     gap: 20px;
+    /* Перенос кнопок на новую строку */
     flex-wrap: wrap;
 }
 
 .cta-buttons .btn-primary {
+    /* Фон основной кнопки */
     background-color: var(--bordeaux-primary);
+    /* Цвет границы */
     border-color: var(--bordeaux-primary);
 }
 
 .cta-buttons .btn-primary:hover {
+    /* Фон при наведении */
     background-color: var(--bordeaux-dark);
+    /* Цвет границы при наведении */
     border-color: var(--bordeaux-dark);
 }
 
 .cta-buttons .btn-secondary {
+    /* Прозрачный фон */
     background-color: transparent;
+    /* Цвет границы */
     border-color: #fff;
+    /* Цвет текста */
     color: #fff;
 }
 
 .cta-buttons .btn-secondary:hover {
+    /* Фон при наведении */
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* --- Анимация появления при прокрутке (CSS only) --- */
 @keyframes fadeInUp {
+    /* Начальное состояние */
     from {
+        /* Прозрачность */
         opacity: 0;
+        /* Сдвиг по вертикали */
         transform: translateY(30px);
     }
+    /* Конечное состояние */
     to {
+        /* Непрозрачность */
         opacity: 1;
+        /* Возврат на место */
         transform: translateY(0);
     }
 }
 
+/* Применяем анимацию к карточкам и статистике */
 .value-card,
 .stat-item {
+    /* Анимация fadeInUp */
     animation: fadeInUp 0.6s ease both;
+    /* Привязка к области просмотра */
     animation-timeline: view();
+    /* Диапазон анимации */
     animation-range: entry 0% entry 100%;
 }
 
 /* Задержки для каскадного эффекта в сетках */
 .value-card:nth-child(1),
 .stat-item:nth-child(1) {
+    /* Диапазон анимации для первого элемента */
     animation-range: entry 0% entry 60%;
 }
 
 .value-card:nth-child(2),
 .stat-item:nth-child(2) {
+    /* Диапазон анимации для второго элемента */
     animation-range: entry 5% entry 65%;
 }
 
 .value-card:nth-child(3),
 .stat-item:nth-child(3) {
+    /* Диапазон анимации для третьего элемента */
     animation-range: entry 10% entry 70%;
 }
 
 .value-card:nth-child(4),
 .stat-item:nth-child(4) {
+    /* Диапазон анимации для четвёртого элемента */
     animation-range: entry 15% entry 75%;
 }
 
 /* --- Адаптивность --- */
+
+/* Планшеты (до 992px) */
 @media (max-width: 992px) {
     .about-content {
         flex-direction: column;
         gap: 40px;
     }
 
+    .about-image {
+        flex: 0 0 auto;
+        max-width: 400px;
+        width: 100%;
+    }
+
     .about-hero h1 {
-        font-size: 44.8px;
+        font-size: 2.8em;
     }
 
     .hero-subtitle {
-        font-size: 19.2px;
+        font-size: 1.2em;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 
+/* Мобильные телефоны (до 768px) */
 @media (max-width: 768px) {
     .about-hero {
         padding: 60px 0;
     }
 
     .about-hero h1 {
-        font-size: 35.2px;
+        font-size: 2.2em;
     }
 
     .hero-subtitle {
-        font-size: 17.6px;
+        font-size: 1.1em;
     }
 
     .about-section,
@@ -313,7 +453,15 @@
 
     .about-text h2,
     .values-section h2 {
-        font-size: 32px;
+        font-size: 2em;
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
+
+    .about-image {
+        max-width: 100%;
     }
 
     .values-grid {
@@ -321,17 +469,34 @@
         gap: 20px;
     }
 
+    .value-card {
+        padding: 30px 20px;
+    }
+
+    .value-icon {
+        font-size: 3em;
+    }
+
+    .value-card h3 {
+        font-size: 1.3em;
+    }
+
     .stat-number {
-        font-size: 40px;
+        font-size: 2.5em;
     }
 
     .stat-label {
-        font-size: 15.2px;
+        font-size: 0.95em;
+    }
+
+    .team-intro {
+        font-size: 1.05em;
     }
 
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
 
     .cta-buttons .btn-primary,
@@ -339,19 +504,103 @@
         width: 100%;
         max-width: 280px;
     }
+
+    .cta-section h2 {
+        font-size: 2em;
+    }
+
+    .cta-section p {
+        font-size: 1.05em;
+    }
 }
 
+/* Маленькие телефоны (до 480px) */
 @media (max-width: 480px) {
+    .about-hero {
+        padding: 40px 0;
+    }
+
     .about-hero h1 {
-        font-size: 28.8px;
+        font-size: 1.8em;
+    }
+
+    .hero-subtitle {
+        font-size: 1em;
+    }
+
+    .about-section,
+    .values-section,
+    .stats-section,
+    .team-section,
+    .cta-section {
+        padding: 40px 0;
+    }
+
+    .about-text h2,
+    .values-section h2,
+    .team-section h2,
+    .cta-section h2 {
+        font-size: 1.6em;
+    }
+
+    .about-text p {
+        font-size: 0.95em;
+        line-height: 1.7;
     }
 
     .values-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .value-card {
+        padding: 25px 20px;
+    }
+
+    .value-icon {
+        font-size: 2.5em;
+    }
+
+    .value-card h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .value-card p {
+        font-size: 0.9em;
     }
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 2em;
+    }
+
+    .stat-label {
+        font-size: 0.9em;
+    }
+
+    .team-intro {
+        font-size: 0.95em;
+        line-height: 1.7;
+    }
+
+    .team-cta {
+        margin-top: 25px;
+    }
+
+    .cta-section p {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+        max-width: 260px;
+        padding: 10px 20px;
+        font-size: 0.9em;
     }
 }

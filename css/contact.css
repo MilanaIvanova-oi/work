@@ -1,0 +1,560 @@
+/* ============================================
+   СТРАНИЦА КОНТАКТОВ (contact.html)
+   Студия маникюра "Милка"
+   
+   Описание: Стили для страницы контактов 
+   (контактная информация, форма обратной связи)
+   ============================================ */
+
+/* --- Цветовые переменные --- */
+:root {
+    --bordeaux-primary: #800020;
+    --bordeaux-dark: #5a0016;
+    --bordeaux-light: #a00028;
+    --bordeaux-accent: #c9a961;
+}
+
+/* --- Контейнер страницы --- */
+.contact-page {
+    padding: 60px 0;
+    min-height: calc(100vh - 100px);
+}
+
+.contact-page h2 {
+    margin-bottom: 40px;
+    color: var(--bordeaux-primary);
+}
+
+/* --- Контент --- */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-info-block,
+.contact-form-block {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(128, 0, 32, 0.15);
+    min-height: 400px;
+}
+
+.contact-info-block h3,
+.contact-form-block h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--bordeaux-primary);
+    font-size: 1.8em;
+}
+
+/* --- Контактная информация --- */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    font-size: 1.5em;
+    min-width: 30px;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--bordeaux-dark);
+}
+
+.contact-item p {
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.contact-item a {
+    color: var(--bordeaux-primary);
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    color: var(--bordeaux-dark);
+}
+
+/* --- Социальные сети --- */
+.social-links {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.social-links h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--bordeaux-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    background-color: var(--bordeaux-primary);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+    background-color: var(--bordeaux-dark);
+    color: #fff;
+}
+
+/* --- Форма контактов --- */
+.contact-form-block label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--bordeaux-dark);
+}
+
+.contact-form-block input[type="text"],
+.contact-form-block input[type="tel"],
+.contact-form-block input[type="email"],
+.contact-form-block textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.contact-form-block textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form-block .btn-primary {
+    width: 100%;
+    margin: 10px 0 20px 0;
+    font-size: 1.1em;
+}
+
+/* --- Звёздный рейтинг --- */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.star-rating .star-input {
+    display: none;
+}
+
+.star-rating .star {
+    font-size: 2.5em;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-rating .star:hover,
+.star-rating .star:hover ~ .star,
+.star-rating .star-input:checked ~ .star {
+    color: var(--bordeaux-accent);
+    transform: scale(1.15);
+}
+
+.star-rating .star-input:checked ~ .star:hover,
+.star-rating .star-input:checked ~ .star:hover ~ .star {
+    transform: scale(1);
+}
+
+.star-rating .star-input:checked + .star {
+    animation: starPulse 0.3s ease;
+}
+
+@keyframes starPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* --- Ссылка назад --- */
+.back-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.back-link a {
+    color: var(--bordeaux-primary);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* --- Общая контактная информация (для подвала) --- */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-item a,
+.contact-item p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0;
+}
+
+.contact-actions {
+    text-align: center;
+}
+
+/* --- Обёртка формы (общая) --- */
+.contact-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(128, 0, 32, 0.15);
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact-form-wrapper h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--bordeaux-primary);
+}
+
+.contact-form-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--bordeaux-dark);
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form-wrapper textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+
+/* --- Подвал страницы контактов --- */
+.contact-back {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.contact-back a {
+    color: var(--bordeaux-primary);
+    font-weight: bold;
+}
+
+.contact-back {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* --- Адаптивность --- */
+
+/* Планшеты (до 768px) */
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 40px 0;
+    }
+
+    .contact-page h2 {
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .contact-info-block,
+    .contact-form-block {
+        padding: 30px;
+        min-height: auto;
+    }
+
+    .contact-info-block h3,
+    .contact-form-block h3 {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+    }
+
+    .contact-item {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .contact-icon {
+        font-size: 1.3em;
+    }
+
+    .star-rating .star {
+        font-size: 2.2em;
+    }
+
+    .social-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .social-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+/* Мобильные телефоны (до 600px) */
+@media (max-width: 600px) {
+    .contact-page {
+        padding: 30px 0;
+    }
+
+    .contact-page h2 {
+        font-size: 1.8em;
+    }
+
+    .contact-content {
+        gap: 25px;
+        margin-bottom: 35px;
+    }
+
+    .contact-info-block,
+    .contact-form-block {
+        padding: 25px;
+    }
+
+    .contact-info-block h3,
+    .contact-form-block h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .contact-item strong {
+        font-size: 1em;
+    }
+
+    .contact-item p {
+        font-size: 0.95em;
+    }
+
+    .contact-form-block input[type="text"],
+    .contact-form-block input[type="tel"],
+    .contact-form-block input[type="email"],
+    .contact-form-block textarea {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    .contact-form-block textarea {
+        min-height: 100px;
+    }
+
+    .contact-form-block .btn-primary {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .star-rating .star {
+        font-size: 2em;
+    }
+
+    .social-links {
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    .back-link {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .back-link a {
+        font-size: 1em;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .contact-page {
+        padding: 20px 0;
+    }
+
+    .contact-page h2 {
+        font-size: 1.6em;
+    }
+
+    .contact-content {
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .contact-info-block,
+    .contact-form-block {
+        padding: 20px;
+    }
+
+    .contact-info-block h3,
+    .contact-form-block h3 {
+        font-size: 1.4em;
+        margin-bottom: 18px;
+    }
+
+    .contact-item {
+        margin-bottom: 18px;
+    }
+
+    .contact-item strong {
+        font-size: 0.95em;
+    }
+
+    .contact-item p {
+        font-size: 0.9em;
+    }
+
+    .contact-form-block label {
+        font-size: 0.9em;
+    }
+
+    .contact-form-block input[type="text"],
+    .contact-form-block input[type="tel"],
+    .contact-form-block input[type="email"],
+    .contact-form-block textarea {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .contact-form-block textarea {
+        min-height: 90px;
+    }
+
+    .contact-form-block .btn-primary {
+        padding: 10px 18px;
+        font-size: 0.95em;
+    }
+
+    .star-rating .star {
+        font-size: 1.8em;
+    }
+
+    .social-btn {
+        padding: 8px 14px;
+        font-size: 0.85em;
+    }
+
+    .back-link a {
+        font-size: 0.95em;
+    }
+}
+
+/* Адаптивность для модальных окон */
+@media (max-width: 768px) {
+    .modal-box {
+        padding: 35px 25px 25px;
+        max-width: 90%;
+    }
+
+    .modal-icon {
+        font-size: 2.5em;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .modal-box strong {
+        font-size: 1.1em;
+    }
+
+    .modal-close-btn {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-box {
+        padding: 30px 20px 20px;
+        font-size: 0.9em;
+    }
+
+    .modal-icon {
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .modal-box strong {
+        font-size: 1em;
+    }
+
+    .modal-close-btn {
+        font-size: 1.3em;
+        top: 8px;
+        right: 12px;
+    }
+}
