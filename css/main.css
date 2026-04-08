@@ -254,51 +254,8 @@
     color: #666;
 }
 
-/* --- Адаптивность --- */
-
-/* Планшеты (до 992px) */
-@media (max-width: 992px) {
-    .hero {
-        padding: 80px 20px;
-        margin: 15px;
-        min-height: 400px;
-    }
-
-    .hero h1 {
-        font-size: 44px;
-    }
-
-    .hero p {
-        font-size: 1.1em;
-    }
-
-    .gallery-slides .gallery-item img,
-    .gallery-slides .gallery-item video {
-        height: 400px;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-    }
-
-    .masters-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-    }
-
-    .slide {
-        margin-right: 50px;
-        padding: 20px 30px;
-    }
-
-    .slide h3 {
-        font-size: 24px;
-    }
-}
-
-/* Мобильные телефоны (до 768px) */
-@media (max-width: 768px) {
+/* --- Адаптивность: планшеты и телефоны --- */
+@media (min-width: 480px) and (max-width: 1024px) {
     .hero {
         padding: 60px 15px;
         margin: 10px;
@@ -408,96 +365,35 @@
     .contact-info {
         flex-direction: column;
     }
-}
 
-/* Маленькие телефоны (до 480px) */
-@media (max-width: 480px) {
-    .hero {
-        padding: 40px 10px;
-        margin: 5px;
-        min-height: 300px;
+    /* Модальное окно записи */
+    .modal-content {
+        padding: 30px 25px;
+        margin: 30px auto;
+        width: 92%;
+        max-width: 500px;
     }
 
-    .hero h1 {
-        font-size: 26px;
-        margin-bottom: 10px;
+    .modal-content h2 {
+        font-size: 1.6em;
     }
 
-    .hero p {
-        font-size: 0.9em;
-        margin-bottom: 20px;
+    .modal-content .form-subtitle {
+        font-size: 0.85em;
     }
 
-    .btn-hero {
-        padding: 10px 20px;
-        font-size: 0.9em;
+    .modal-content .form-row {
+        flex-direction: column;
+        gap: 0;
     }
 
-    .slider {
-        padding: 25px 0;
-        min-height: 160px;
+    .modal-close {
+        font-size: 28px;
+        top: 12px;
+        right: 15px;
     }
 
-    .slide {
-        padding: 15px;
-    }
-
-    .slide h3 {
-        font-size: 18px;
-        margin: 8px 0 6px 0;
-    }
-
-    .slide p {
-        font-size: 13px;
-    }
-
-    .discount-badge {
-        font-size: 18px;
-        padding: 6px 15px;
-    }
-
-    .services-grid,
-    .masters-grid {
-        gap: 15px;
-    }
-
-    .service-item {
-        padding: 15px;
-    }
-
-    .service-item img {
-        height: 150px;
-    }
-
-    .service-item h3 {
-        font-size: 22px;
-    }
-
-    .service-item p {
-        font-size: 14px;
-    }
-
-    .price {
-        font-size: 17px;
-    }
-
-    .gallery-slides .gallery-item img,
-    .gallery-slides .gallery-item video {
-        height: 250px;
-    }
-
-    .gallery-nav {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    .master-card img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .master-card p {
+    .modal-content .checkbox-label {
         font-size: 0.85em;
     }
 }
@@ -688,77 +584,4 @@
     border-radius: 5px;
     text-align: center;
     margin-bottom: 15px;
-}
-
-/* --- Адаптивность модального окна --- */
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 30px 25px;
-        margin: 30px auto;
-        width: 92%;
-        max-width: 500px;
-    }
-
-    .modal-content h2 {
-        font-size: 1.6em;
-    }
-
-    .modal-content .form-subtitle {
-        font-size: 0.85em;
-    }
-
-    .modal-content .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .modal-close {
-        font-size: 28px;
-        top: 12px;
-        right: 15px;
-    }
-
-    .modal-content .checkbox-label {
-        font-size: 0.85em;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 25px 20px;
-        margin: 20px auto;
-        width: 95%;
-    }
-
-    .modal-content h2 {
-        font-size: 1.4em;
-    }
-
-    .modal-content label {
-        font-size: 0.9em;
-    }
-
-    .modal-content input[type="text"],
-    .modal-content input[type="tel"],
-    .modal-content input[type="date"],
-    .modal-content select {
-        padding: 8px;
-        font-size: 0.9em;
-    }
-
-    .modal-content .btn-submit {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-
-    .modal-close {
-        font-size: 24px;
-        top: 10px;
-        right: 12px;
-    }
-
-    .modal-content .checkbox-label {
-        font-size: 0.8em;
-        gap: 6px;
-    }
 }

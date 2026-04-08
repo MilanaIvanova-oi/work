@@ -340,35 +340,14 @@ select.input-valid {
     display: none;
 }
 
-/* --- Адаптивность (общая) --- */
-
-/* Планшеты (768px - 992px) */
-@media (max-width: 992px) {
+/* --- Адаптивность (общая): планшеты и телефоны --- */
+@media (min-width: 480px) and (max-width: 1024px) {
     .logo img {
         height: 70px;
         width: auto;
         margin: 0 -50px;
     }
 
-    header nav ul {
-        gap: 15px;
-    }
-
-    header nav ul li a {
-        font-size: 0.95em;
-    }
-
-    h2 {
-        font-size: 2.2em;
-    }
-
-    h3 {
-        font-size: 1.3em;
-    }
-}
-
-/* Мобильные телефоны (до 768px) */
-@media (max-width: 768px) {
     header {
         padding: 10px 0;
     }
@@ -393,12 +372,6 @@ select.input-valid {
 
     .logo-right {
         display: none;
-    }
-
-    .logo img {
-        height: 60px;
-        width: auto;
-        margin: 0;
     }
 
     header nav ul {
@@ -476,84 +449,16 @@ select.input-valid {
         font-size: 1em;
     }
 
+    .contact-actions {
+        margin-top: 20px;
+    }
+
     .container {
         width: 95%;
         padding: 0 10px;
     }
-}
 
-/* Маленькие телефоны (до 480px) */
-@media (max-width: 480px) {
-    header {
-        padding: 8px 0;
-    }
-
-    .logo img {
-        height: 50px;
-    }
-
-    header nav ul {
-        gap: 8px;
-    }
-
-    header nav ul li a {
-        font-size: 0.85em;
-        padding: 4px 6px;
-    }
-
-    .menu-toggle {
-        padding: 8px 12px;
-        font-size: 0.85em;
-    }
-
-    .header-actions-menu {
-        min-width: 180px;
-        padding: 10px;
-    }
-
-    .header-actions-menu a,
-    .header-actions-menu .btn-primary,
-    .header-actions-menu .btn-secondary,
-    .header-actions-menu .btn-register {
-        padding: 10px 12px;
-        font-size: 0.85em;
-    }
-
-    .btn-primary,
-    .btn-secondary,
-    .btn-register,
-    .btn-hero {
-        padding: 10px 15px;
-        font-size: 0.85em;
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    h3 {
-        font-size: 1.1em;
-    }
-
-    footer {
-        padding: 30px 0;
-        margin-top: 30px;
-    }
-
-    .contact-info {
-        gap: 15px;
-    }
-
-    .contact-actions {
-        margin-top: 20px;
-    }
-}
-
-/* Модальные окна - адаптивность */
-@media (max-width: 768px) {
+    /* Модальные окна */
     .modal-box {
         padding: 35px 25px 25px;
         max-width: 90%;
@@ -575,24 +480,6 @@ select.input-valid {
         font-size: 1.4em;
         top: 8px;
         right: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-box {
-        padding: 30px 20px 20px;
-        font-size: 0.9em;
-    }
-
-    .modal-icon {
-        font-size: 2em;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    .modal-box strong {
-        font-size: 1em;
     }
 }
 

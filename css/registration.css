@@ -98,51 +98,19 @@
     border-top: 1px solid #eee;
 }
 
-/* --- Адаптивность --- */
-
-/* Планшеты (до 768px) */
-@media (max-width: 768px) {
+/* --- Адаптивность: планшеты и телефоны --- */
+@media (min-width: 480px) and (max-width: 1024px) {
     .registration-page {
         padding: 40px 0;
     }
 
     .registration-form-wrapper {
-        padding: 35px;
+        padding: 30px;
         max-width: 400px;
     }
 
     .registration-form-wrapper h2 {
         font-size: 2em;
-    }
-
-    .registration-form-wrapper input {
-        padding: 11px;
-        font-size: 0.95em;
-    }
-
-    .registration-form-wrapper .btn-register-submit {
-        padding: 12px 20px;
-        font-size: 1em;
-    }
-
-    .registration-footer,
-    .registration-back {
-        font-size: 0.9em;
-    }
-}
-
-/* Мобильные телефоны (до 600px) */
-@media (max-width: 600px) {
-    .registration-page {
-        padding: 30px 0;
-    }
-
-    .registration-form-wrapper {
-        padding: 25px;
-    }
-
-    .registration-form-wrapper h2 {
-        font-size: 1.8em;
         margin-bottom: 25px;
     }
 
@@ -182,58 +150,8 @@
     .registration-back a {
         font-size: 0.95em;
     }
-}
 
-/* Маленькие телефоны (до 480px) */
-@media (max-width: 480px) {
-    .registration-page {
-        padding: 20px 0;
-    }
-
-    .registration-form-wrapper {
-        padding: 20px;
-    }
-
-    .registration-form-wrapper h2 {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-    }
-
-    .registration-form-wrapper label {
-        font-size: 0.9em;
-        margin-bottom: 6px;
-    }
-
-    .registration-form-wrapper input {
-        padding: 8px;
-        font-size: 0.9em;
-        margin-bottom: 15px;
-    }
-
-    .registration-form-wrapper .btn-primary,
-    .registration-form-wrapper .btn-register-submit {
-        padding: 10px 16px;
-        font-size: 0.95em;
-        margin: 6px 0 15px 0;
-    }
-
-    .registration-form-wrapper .btn-register-submit:hover {
-        padding: 10px 16px;
-    }
-
-    .registration-footer,
-    .registration-back {
-        font-size: 0.85em;
-    }
-
-    .registration-footer a,
-    .registration-back a {
-        font-size: 0.9em;
-    }
-}
-
-/* Адаптивность для модальных окон */
-@media (max-width: 768px) {
+    /* Модальные окна */
     .modal-box {
         padding: 35px 25px 25px;
         max-width: 90%;
@@ -252,29 +170,5 @@
 
     .modal-close-btn {
         font-size: 1.4em;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-box {
-        padding: 30px 20px 20px;
-        font-size: 0.9em;
-    }
-
-    .modal-icon {
-        font-size: 2em;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    .modal-box strong {
-        font-size: 1em;
-    }
-
-    .modal-close-btn {
-        font-size: 1.3em;
-        top: 8px;
-        right: 12px;
     }
 }
