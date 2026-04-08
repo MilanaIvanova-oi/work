@@ -1,33 +1,57 @@
+<!-- 
+    ============================================
+    СТРАНИЦА ВХОДА
+    Студия маникюра "Милка"
+    
+    Описание: Форма авторизации сотрудников
+    ============================================
+-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Мета-теги страницы -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход - Студия маникюра "Милка"</title>
+    
+    <!-- Подключение CSS-стилей -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/login.css">
+    
+    <!-- Подключение шрифтов Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Шапка сайта с навигацией -->
     <header>
         <div class="container">
-            <div class="logo">
-                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
+            <div class="logo logo-left">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
             </div>
             <nav>
                 <ul>
-                    <li><a href="salon_manicur.html#services">Услуги</a></li>
-                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
-                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><button class="menu-toggle" id="menuToggle">Меню</button></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="appointment.html" class="btn-primary">Записаться</a>
-                <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
-                <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
-                <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="about.html" class="btn-secondary">О нас</a>
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
+            </div>
+            <div class="logo logo-right">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
             </div>
         </div>
     </header>
@@ -38,14 +62,14 @@
                 <h2>Вход для сотрудников</h2>
                 <form id="login-form">
                     <label for="username">Логин:</label>
-                    <input type="text" id="username" name="username" required placeholder="Введите ваш логин">
+                    <input type="text" id="username" name="username" required minlength="3" placeholder="Введите ваш логин">
                     <div class="error-message" id="username-error"></div>
 
                     <label for="password">Пароль:</label>
-                    <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+                    <input type="password" id="password" name="password" required minlength="6" placeholder="Введите ваш пароль">
                     <div class="error-message" id="password-error"></div>
 
-                    <button type="submit" class="btn-primary">Войти</button>
+                    <button type="submit" class="btn btn-primary">Войти</button>
                 </form>
                 <p class="login-footer">Нет аккаунта? <a href="registration.html">Зарегистрироваться</a></p>
                 <p class="login-back"><a href="index.html">← Вернуться на главную</a></p>
@@ -53,6 +77,27 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- Модальное окно об успешном входе (скрыто по умолчанию) -->
+    <div id="loginSuccessModal" class="modal-overlay">
+        <div class="modal-box success-modal">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-icon success-icon">✓</div>
+            <strong>Вход выполнен!</strong><br>
+            <span class="modal-detail">Добро пожаловать, <span id="loginUserName"></span>!</span>
+        </div>
+    </div>
+
+    <!-- Модальное окно об ошибке входа (скрыто по умолчанию) -->
+    <div id="loginErrorModal" class="modal-overlay">
+        <div class="modal-box error-modal">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-icon error-icon">✗</div>
+            <strong>Ошибка входа!</strong><br>
+            <span class="error-detail">Неверный логин или пароль. Попробуйте ещё раз.</span>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

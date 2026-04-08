@@ -1,33 +1,57 @@
+<!-- 
+    ============================================
+    СТРАНИЦА РЕГИСТРАЦИИ
+    Студия маникюра "Милка"
+    
+    Описание: Форма регистрации нового пользователя
+    ============================================
+-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Мета-теги страницы -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация - Студия маникюра "Милка"</title>
+    
+    <!-- Подключение CSS-стилей -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/registration.css">
+    
+    <!-- Подключение шрифтов Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Шапка сайта с навигацией -->
     <header>
         <div class="container">
-            <div class="logo">
-                <img src="img/2026-03-20_21-55-19.png" alt="Логотип Студии маникюра">
+            <div class="logo logo-left">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
             </div>
             <nav>
                 <ul>
-                    <li><a href="salon_manicur.html#services">Услуги</a></li>
-                    <li><a href="salon_manicur.html#masters">Мастера</a></li>
-                    <li><a href="salon_manicur.html#gallery">Галерея</a></li>
-                    <li><a href="salon_manicur.html#contact">Контакты</a></li>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><button class="menu-toggle" id="menuToggle">Меню</button></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="index.html#appointment" class=" btn-primary">Записаться</a>
-                <a href="login.html" class="btn-secondary">Вход</a>
-                <a href="registration.html" class="btn-register">Регистрация</a>
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="about.html" class="btn-secondary">О нас</a>
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
+            </div>
+            <div class="logo logo-right">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
             </div>
         </div>
     </header>
@@ -38,31 +62,58 @@
                 <h2>Регистрация</h2>
                 <form id="registration-form">
                     <label for="reg-name">Ваше имя:</label>
-                    <input type="text" id="reg-name" name="name" required placeholder="Введите ваше имя">
+                    <input type="text" id="reg-name" name="name" required minlength="2" placeholder="Введите ваше имя">
+                    <div class="error-message" id="reg-name-error"></div>
 
                     <label for="reg-username">Логин:</label>
-                    <input type="text" id="reg-username" name="username" required placeholder="Придумайте логин">
+                    <input type="text" id="reg-username" name="username" required minlength="3" placeholder="Придумайте логин">
+                    <div class="error-message" id="reg-username-error"></div>
 
                     <label for="reg-email">Email:</label>
                     <input type="email" id="reg-email" name="email" required placeholder="Введите ваш email">
+                    <div class="error-message" id="reg-email-error"></div>
 
                     <label for="reg-phone">Телефон:</label>
-                    <input type="tel" id="reg-phone" name="phone" required placeholder="+7 (___) ___-__-__" maxlength="18" inputmode="tel">
+                    <input type="tel" id="reg-phone" name="phone" required placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}">
+                    <div class="error-message" id="reg-phone-error"></div>
 
                     <label for="reg-password">Пароль:</label>
-                    <input type="password" id="reg-password" name="password" required placeholder="Придумайте пароль">
+                    <input type="password" id="reg-password" name="password" required minlength="6" placeholder="Придумайте пароль">
+                    <div class="error-message" id="reg-password-error"></div>
 
                     <label for="reg-password-confirm">Подтвердите пароль:</label>
                     <input type="password" id="reg-password-confirm" name="password-confirm" required placeholder="Повторите пароль">
+                    <div class="error-message" id="reg-password-confirm-error"></div>
 
-                    <button type="submit" class="btn-register-submit">Зарегистрироваться</button>
+                    <button type="submit" class="btn btn-register-submit">Зарегистрироваться</button>
                 </form>
-                <p class="registration-footer">Уже есть аккаунт? <a href="login.html">Войти</a></p>
-                <p class="registration-back"><a href="index.html">← Вернуться на главную</a></p>
+                <div class="registration-footer">Уже есть аккаунт? <a href="login.html">Войти</a></div>
+                <div class="registration-back"><a href="index.html">← Вернуться на главную</a></div>
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- Модальное окно об успехе регистрации (скрыто по умолчанию) -->
+    <div id="regSuccessModal" class="modal-overlay">
+        <div class="modal-box success-modal">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-icon success-icon">✓</div>
+            <strong>Регистрация успешна!</strong><br>
+            <span class="modal-detail">Добро пожаловать в студию маникюра "Милка"!</span>
+        </div>
+    </div>
+
+    <!-- Модальное окно об ошибке (скрыто по умолчанию) -->
+    <div id="regErrorModal" class="modal-overlay">
+        <div class="modal-box error-modal">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-icon error-icon">✗</div>
+            <strong>Ошибка регистрации!</strong><br>
+            <span class="error-detail">Произошла ошибка. Пожалуйста, попробуйте ещё раз.</span>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/registration.js"></script>
 </body>
 </html>

@@ -14,27 +14,17 @@
 // Отправляет запрос на сервер и получает список услуг
 // ============================================
 async function fetchServices() {
-    let url = `http://localhost/myserver/`
-    let d = { action: 'get_services' }
+    let url = `http://localhost/myserver/get?action=get_services`
+    let response = await fetch(url, {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+    })
+    let services = await response.json()
 
-    try {
-        let response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(d).toString(),
-        })
-        let result = await response.json()
-
-        if (result.status === 'success') {
-            renderServices(result.services)
-        } else {
-            console.error('Ошибка:', result.message)
-        }
-    } catch (error) {
-        console.error('Ошибка:', error)
+    if (Array.isArray(services) && services.length > 0) {
+        renderServices(services)
+    } else {
+        console.error('Услуги не найдены или ошибка сервера')
     }
 }
 
@@ -64,27 +54,17 @@ function renderServices(services) {
 // ПОЛУЧЕНИЕ МАСТЕРОВ ИЗ БАЗЫ ДАННЫХ
 // ============================================
 async function fetchMasters() {
-    let url = `http://localhost/myserver/`
-    let d = { action: 'get_masters' }
+    let url = `http://localhost/myserver/get?action=get_masters`
+    let response = await fetch(url, {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+    })
+    let masters = await response.json()
 
-    try {
-        let response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(d).toString(),
-        })
-        let result = await response.json()
-
-        if (result.status === 'success') {
-            renderMasters(result.masters)
-        } else {
-            console.error('Ошибка:', result.message)
-        }
-    } catch (error) {
-        console.error('Ошибка:', error)
+    if (Array.isArray(masters) && masters.length > 0) {
+        renderMasters(masters)
+    } else {
+        console.error('Мастера не найдены или ошибка сервера')
     }
 }
 
@@ -153,42 +133,13 @@ function initGallerySlider() {
 // ============================================
 // ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА СО СКИДКАМИ
 // ============================================
- // Инициализация слайдера скидок
-        document.addEventListener('DOMContentLoaded', () => {
-            const DEFAULT_SPEED = 2;
+function initDiscountSlider() {
+    const slider = document.querySelector('.discount-slider')
+    if (!slider) return
 
-            const slider = document.querySelector('.discount-slider-wrapper .slider');
-            if (!slider) return;
-
-            const wrapper = document.querySelector('.discount-slider-wrapper .slider-track');
-
-            wrapper.innerHTML += wrapper.innerHTML;
-
-            let speed = DEFAULT_SPEED;
-            let position = 0;
-
-            slider.addEventListener('mouseenter', () => {
-                speed = DEFAULT_SPEED / 2;
-            });
-
-            slider.addEventListener('mouseleave', () => {
-                speed = DEFAULT_SPEED;
-            });
-
-            function animate() {
-                position -= speed;
-
-                if (Math.abs(position) >= wrapper.scrollWidth / 2) {
-                    position = 0;
-                }
-
-                wrapper.style.transform = `translateX(${position}px)`;
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-        });
-
+    // CSS анимация делает всю работу - бесконечная плавная прокрутка
+    // При наведении курсора анимация приостанавливается через :hover
+}
 
 // ============================================
 // ИНИЦИАЛИЗАЦИЯ ГЛАВНОЙ СТРАНИЦЫ

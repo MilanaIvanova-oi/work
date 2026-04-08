@@ -12,7 +12,7 @@
 // Отправляет логин и пароль на сервер
 // ============================================
 async function fetchLogin(username, password) {
-    let url = `http://localhost/myserver/`
+    let url = `http://localhost/myserver/post`
     let d = { action: 'login', username, password }
 
     try {
@@ -27,16 +27,35 @@ async function fetchLogin(username, password) {
         let result = await response.json()
 
         if (result.status === 'success') {
-            alert(result.message)
             localStorage.setItem('isLoggedIn', 'true')
             localStorage.setItem('username', username)
-            window.location.href = 'index.html'
+            localStorage.setItem('name', result.name || '')
+            localStorage.setItem('phone', result.phone || '')
+
+            const modal = document.querySelector('#loginSuccessModal')
+            const nameSpan = document.querySelector('#loginUserName')
+            if (nameSpan) nameSpan.textContent = result.name || username
+            if (modal) {
+                modal.classList.add('active')
+            }
+
+            setTimeout(() => {
+                window.location.href = 'index.html'
+            }, 2000)
         } else {
-            alert(result.message)
+            const modal = document.querySelector('#loginErrorModal')
+            if (modal) {
+                modal.classList.add('active')
+                modal.querySelector('.error-detail').textContent = result.message || 'Неверный логин или пароль. Попробуйте ещё раз.'
+            }
         }
     } catch (error) {
         console.error('Ошибка:', error)
-        alert('Ошибка соединения с сервером')
+        const modal = document.querySelector('#loginErrorModal')
+        if (modal) {
+            modal.classList.add('active')
+            modal.querySelector('.error-detail').textContent = 'Ошибка соединения с сервером'
+        }
     }
 }
 
@@ -46,14 +65,17 @@ async function fetchLogin(username, password) {
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.querySelector('#login-form')
     if (loginForm) {
-        attachValidationHandlers(['username', 'password'])
+        if (typeof attachValidationHandlers === 'function') {
+            attachValidationHandlers(['username', 'password'])
+        }
 
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault()
 
             let hasErrors = false
-            ['username', 'password'].forEach(function(fieldId) {
-                if (!validateField(fieldId)) {
+            const fields = ['username', 'password']
+            fields.forEach(function(fieldId) {
+                if (typeof validateField === 'function' && !validateField(fieldId)) {
                     hasErrors = true
                 }
             })
@@ -67,4 +89,16 @@ document.addEventListener('DOMContentLoaded', function() {
             fetchLogin(username, password)
         })
     }
+
+    // Закрытие модальных окон
+    document.querySelectorAll('.modal-close-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            this.closest('.modal-overlay').classList.remove('active')
+        })
+    })
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) overlay.classList.remove('active')
+        })
+    })
 })

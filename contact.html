@@ -1,0 +1,161 @@
+<!-- 
+    ============================================
+    СТРАНИЦА КОНТАКТОВ
+    Студия маникюра "Милка"
+    
+    Описание: Контактная информация и форма 
+    обратной связи
+    ============================================
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Мета-теги страницы -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связаться с нами - Студия маникюра "Милка"</title>
+    
+    <!-- Подключение CSS-стилей -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
+    
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта с навигацией -->
+    <header>
+        <div class="container">
+            <div class="logo logo-left">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><button class="menu-toggle" id="menuToggle">Меню</button></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="about.html" class="btn-secondary">О нас</a>
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
+            </div>
+            <div class="logo logo-right">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-page">
+        <div class="container">
+            <h2>Связаться с нами</h2>
+
+            <div class="contact-content">
+                <div class="contact-info-block">
+                    <h3>Наши контакты</h3>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Адрес:</strong>
+                            <p>г. Москва, ул. Красоты, д. 15</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Телефон:</strong>
+                            <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email:</strong>
+                            <p><a href="mailto:info@milka-nails.ru">info@milka-nails.ru</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <strong>Режим работы:</strong>
+                            <p>Пн-Вс: 10:00 - 21:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-block">
+                    <h3>Оставьте отзыв</h3>
+                    <form id="contact-form">
+                        <input type="hidden" id="name" name="name">
+                        <input type="hidden" id="email" name="email">
+                        <input type="hidden" id="phone" name="phone">
+
+                        <label>Ваша оценка:</label>
+                        <div class="star-rating" id="starRating">
+                            <input type="radio" id="star5" name="rating" value="5" class="star-input">
+                            <label for="star5" class="star">★</label>
+                            <input type="radio" id="star4" name="rating" value="4" class="star-input">
+                            <label for="star4" class="star">★</label>
+                            <input type="radio" id="star3" name="rating" value="3" class="star-input">
+                            <label for="star3" class="star">★</label>
+                            <input type="radio" id="star2" name="rating" value="2" class="star-input">
+                            <label for="star2" class="star">★</label>
+                            <input type="radio" id="star1" name="rating" value="1" class="star-input">
+                            <label for="star1" class="star">★</label>
+                        </div>
+                        <div class="error-message" id="rating-error"></div>
+
+                        <label for="message">Ваш отзыв:</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Поделитесь вашими впечатлениями"></textarea>
+                        <div class="error-message" id="message-error"></div>
+
+                        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="back-link">
+                <a href="index.html">← Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно «Спасибо за отзыв» (скрыто по умолчанию) -->
+    <div id="contactSuccessModal" class="modal-overlay">
+        <div class="modal-box success-modal">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-icon success-icon">✓</div>
+            <strong>Спасибо за ваш отзыв!</strong><br>
+            <span class="modal-detail">Ваше мнение очень важно для нас.</span>
+        </div>
+    </div>
+
+    <!-- Модальное окно об ошибке (скрыто по умолчанию) -->
+    <div id="contactErrorModal" class="modal-overlay">
+        <div class="modal-box error-modal">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-icon error-icon">✗</div>
+            <strong>Ошибка!</strong><br>
+            <span class="error-detail">Не удалось отправить отзыв. Попробуйте ещё раз.</span>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

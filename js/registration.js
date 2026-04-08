@@ -29,16 +29,34 @@ async function fetchData(name, username, email, phone, password) {
         console.log('Ответ сервера:', result)
 
         if (result.status === 'success') {
-            alert(result.message)
             localStorage.setItem('isLoggedIn', 'true')
             localStorage.setItem('username', username)
-            window.location.href = 'index.html'
+            localStorage.setItem('name', name)
+            localStorage.setItem('phone', phone)
+
+            const modal = document.querySelector('#regSuccessModal')
+            if (modal) {
+                modal.classList.add('active')
+                modal.querySelector('.modal-detail').textContent = result.message || 'Добро пожаловать в студию маникюра "Милка"!'
+            }
+
+            setTimeout(() => {
+                window.location.href = 'index.html'
+            }, 2000)
         } else {
-            alert(result.message)
+            const modal = document.querySelector('#regErrorModal')
+            if (modal) {
+                modal.classList.add('active')
+                modal.querySelector('.error-detail').textContent = result.message
+            }
         }
     } catch (error) {
         console.error('Ошибка:', error)
-        alert('Ошибка соединения с сервером: ' + error.message)
+        const modal = document.querySelector('#regErrorModal')
+        if (modal) {
+            modal.classList.add('active')
+            modal.querySelector('.error-detail').textContent = 'Ошибка соединения с сервером: ' + error.message
+        }
     }
 }
 
@@ -74,4 +92,16 @@ document.addEventListener('DOMContentLoaded', function() {
             fetchData(name, username, email, phone, password)
         })
     }
+
+    // Закрытие модальных окон
+    document.querySelectorAll('.modal-close-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            this.closest('.modal-overlay').classList.remove('active')
+        })
+    })
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) overlay.classList.remove('active')
+        })
+    })
 })

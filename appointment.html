@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Основные настройки страницы -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Записаться на услугу - Студия маникюра "Милка"</title>
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/appointment.css">
+    
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="logo logo-left">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="index.html#masters">Мастера</a></li>
+                    <li><a href="index.html#gallery">Галерея</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><button class="menu-toggle" id="menuToggle">Меню</button></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="header-actions-menu" id="headerMenu">
+                    <a href="about.html" class="btn-secondary">О нас</a>
+                    <a href="contact.html" class="btn-secondary">Связаться с нами</a>
+                    <a href="appointment.html" class="btn-primary">Записаться</a>
+                    <a href="login.html" class="btn-secondary" id="authLink">Вход</a>
+                    <a href="registration.html" class="btn-register" id="regLink">Регистрация</a>
+                    <a href="#" class="btn-secondary" id="logoutLink" style="display: none;">Выход</a>
+                </div>
+            </div>
+            <div class="logo logo-right">
+                <img src="img/лого.png" alt="Логотип Студии маникюра">
+            </div>
+        </div>
+    </header>
+
+    <!-- Основная секция с формой записи -->
+    <div class="appointment-page">
+        <div class="container">
+            <div class="appointment-form-wrapper">
+                <!-- Заголовок формы -->
+                <h2>Записаться на услугу</h2>
+                <p class="form-subtitle">Заполните форму и мы подтвердим запись в ближайшее время</p>
+
+                <!-- Модальное окно об успехе (скрыто по умолчанию) -->
+                <div id="successMessage" class="modal-overlay">
+                    <div class="modal-box success-modal">
+                        <button class="modal-close-btn">&times;</button>
+                        <div class="modal-icon success-icon">✓</div>
+                        <strong>Заявка отправлена!</strong><br>
+                        Мы свяжемся с вами в течение 15 минут для подтверждения записи.
+                    </div>
+                </div>
+
+                <!-- Модальное окно об ошибке (скрыто по умолчанию) -->
+                <div id="errorMessage" class="modal-overlay">
+                    <div class="modal-box error-modal">
+                        <button class="modal-close-btn">&times;</button>
+                        <div class="modal-icon error-icon">✗</div>
+                        <strong>Ошибка!</strong><br>
+                        <span class="error-detail">Пожалуйста, проверьте правильность заполнения полей.</span>
+                    </div>
+                </div>
+
+                <!-- Форма записи -->
+                <form id="appointment-form">
+                    <!-- Информация о пользователе -->
+                    <div class="user-info" id="userInfoDisplay" style="display:none;">
+                        <div class="user-info-row">
+                            <div class="user-info-label">Имя:</div>
+                            <div class="user-info-value" id="userInfoName"></div>
+                        </div>
+                        <div class="user-info-row">
+                            <div class="user-info-label">Телефон:</div>
+                            <div class="user-info-value" id="userInfoPhone"></div>
+                        </div>
+                    </div>
+
+                    <!-- Выбор услуги (загружается из базы данных через JS) -->
+                    <label for="service-select">Выберите услугу *</label>
+                    <select id="service-select" name="service" required>
+                        <option value="">-- Выберите услугу --</option>
+                    </select>
+                    <div class="error-message" id="service-select-error"></div>
+
+                    <!-- Выбор мастера (загружается из базы данных через JS) -->
+                    <label for="master-select">Выберите мастера *</label>
+                    <select id="master-select" name="master" required>
+                        <option value="">-- Выберите мастера --</option>
+                    </select>
+                    <div class="error-message" id="master-select-error"></div>
+
+                    <!-- Дата и время записи -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="appointment-date">Дата *</label>
+                            <input type="date" id="appointment-date" name="date" required>
+                            <div class="error-message" id="appointment-date-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-time">Время *</label>
+                            <select id="appointment-time" name="time" required>
+                                <option value="">-- Выберите время --</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                            </select>
+                            <div class="error-message" id="appointment-time-error"></div>
+                        </div>
+                    </div>
+
+                    <!-- Количество сеансов (number) -->
+                    <label for="appointment-sessions">Количество сеансов</label>
+                    <input type="number" id="appointment-sessions" name="sessions" min="1" max="20" value="1" placeholder="От 1 до 20">
+                    <div class="error-message" id="appointment-sessions-error"></div>
+
+                    <!-- Способ оплаты (radio) -->
+                    <fieldset class="payment-methods">
+                        <legend>Способ оплаты *</legend>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="payment" id="payment-cash" value="cash" required>
+                                <span>Наличные</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="payment" id="payment-card" value="card">
+                                <span>Банковская карта</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="payment" id="payment-online" value="online">
+                                <span>Онлайн-перевод</span>
+                            </label>
+                        </div>
+                        <div class="error-message" id="payment-error"></div>
+                    </fieldset>
+
+                    <!-- Согласие на обработку данных (checkbox) -->
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="appointment-agreement" name="agreement" required>
+                            <span>Даю согласие на обработку персональных данных *</span>
+                        </label>
+                        <div class="error-message" id="appointment-agreement-error"></div>
+                    </div>
+
+                    <!-- Дополнительно (checkbox) -->
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="appointment-reminder" name="reminder" value="yes">
+                            <span>Напомнить о записи за день до визита</span>
+                        </label>
+                    </div>
+
+                    <!-- Кнопка отправки формы -->
+                    <button type="submit" class="btn-submit">Записаться</button>
+                </form>
+
+                <!-- Ссылка возврата на главную страницу -->
+                <div class="back-link">
+                    <a href="index.html">← Вернуться на главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript файла -->
+    <script src="js/common.js"></script>
+    <script src="js/appointment.js"></script>
+</body>
+</html>
